@@ -66,9 +66,6 @@ h2 {
   h2 {
     margin-bottom: 4rem;
   }
-  /*#menu h3 {
-        margin-bottom: 4rem;
-    }*/
 }
 
 h3 {
@@ -78,7 +75,7 @@ h3 {
 }
 
 h3 a:hover {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #05102e;
 }
 
 h4 {
@@ -91,12 +88,21 @@ h4 {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #05102e;
+  background-color: #fb0;
+}
+
+a:hover {
+  border-bottom: 2px solid #05102e;
 }
 
 ul {
   list-style: none;
   padding-left: 0;
+}
+
+ul li {
+  margin-top: 10px;
 }
 
 #background {
@@ -108,12 +114,19 @@ ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 2rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 1300px;
+  margin: 0 auto 2rem;
+}
+
+#background > div {
   background-color: #fff;
   color: #05102e;
-  text-align: left;
-  max-width: 1000px;
-  margin: 0 auto 2rem;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border: 1rem solid #b9caf8;
+  width: 100%;
 }
 
 #background h3 {
@@ -122,10 +135,6 @@ ul {
 
 #background ul a {
   color: #05102e;
-}
-
-#background ul a:hover {
-  border-bottom: 2px solid #05102e;
 }
 
 #background #projects small {
@@ -139,13 +148,18 @@ ul {
         -ms-flex-direction: row;
             flex-direction: row;
   }
+  #background > div {
+    width: 49%;
+  }
 }
 
 #filter {
   display: none;
+  margin-bottom: 2rem;
 }
 
 #filter #filter-inner {
+  border: 16px solid #b9caf8;
   background-color: #fff;
   color: #05102e;
   text-align: left;
@@ -156,6 +170,14 @@ ul {
 
 #filter #filter-inner h3 {
   margin-top: 0;
+}
+
+#filter #filter-inner input {
+  margin-bottom: 10px;
+}
+
+#filter #filter-inner input:last-of-type {
+  margin-bottom: 3px;
 }
 
 @media screen and (min-width: 700px) {
@@ -250,11 +272,6 @@ ul {
   color: #05102e;
 }
 
-.wrapper section .summary a:hover,
-.wrapper section .courses a:hover {
-  border-bottom: 2px solid #05102e;
-}
-
 .wrapper section .summary::after,
 .wrapper section .courses::after {
   content: none;
@@ -291,10 +308,6 @@ ul {
 .wrapper section .location,
 .wrapper section .grade {
   display: none;
-}
-
-.wrapper section li {
-  margin-top: 5px;
 }
 
 .wrapper section:nth-child(odd) {
@@ -334,7 +347,7 @@ ul {
 }
 
 .wrapper #shopworks .summary {
-  top: calc(50% + .25rem);
+  top: calc(50% + 3px);
 }
 
 .wrapper #shopworks h3 {
@@ -352,7 +365,8 @@ ul {
 @media screen and (min-width: 700px) {
   .wrapper section .summary,
   .wrapper section .courses {
-    width: calc(100% - 2rem);
+    width: 75%;
+    left: calc(100% + 2rem);
   }
   .wrapper section .summary::after,
   .wrapper section .courses::after {
@@ -366,12 +380,26 @@ ul {
   .wrapper section:nth-child(odd) .courses::after {
     content: '';
   }
+  .wrapper section:nth-child(odd) .summary,
+  .wrapper section:nth-child(odd) .courses {
+    left: calc(-75% - 2rem);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .wrapper section .summary,
+  .wrapper section .courses {
+    width: 50%;
+  }
+  .wrapper section:nth-child(odd) .summary,
+  .wrapper section:nth-child(odd) .courses {
+    left: calc(-50% - 2rem);
+  }
 }
 
 #rocket i {
   font-size: 5rem;
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
-  margin-bottom: 6rem;
+  margin-bottom: 12rem;
 }
-/*# sourceMappingURL=styles.css.map */
