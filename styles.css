@@ -265,6 +265,7 @@ ul li {
   opacity: 0;
   -webkit-transition: visibility .2s, opacity .5s linear;
   transition: visibility .2s, opacity .5s linear;
+  z-index: 2;
 }
 
 .wrapper section .summary a,
@@ -401,5 +402,5 @@ ul li {
   font-size: 5rem;
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
-  margin-bottom: 12rem;
+  margin-bottom: 15rem;
 }
