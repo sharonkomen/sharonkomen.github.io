@@ -72,18 +72,22 @@ window.onload = function getAge() {
 function showGeneral() {
     let backgroundInfo = document.getElementById('background');
     if (window.getComputedStyle(backgroundInfo).display == "none") {
-        document.getElementById('generalBtn').style.backgroundColor = "#fb0";
+        document.getElementById('generalBtn').style.backgroundColor = "transparent";
+        document.getElementById('generalBtn').style.color = "#fff";
         return backgroundInfo.style.display = "flex";
     }
     document.getElementById('generalBtn').style.backgroundColor = "#fff";
+    document.getElementById('generalBtn').style.color = "#05102e";
     return backgroundInfo.style.display = "none";
 }
 
 function showFilter() {
     if (window.getComputedStyle(document.getElementById('filter')).display == "none") {
-        document.getElementById('filterBtn').style.backgroundColor = "#fb0";
+        document.getElementById('filterBtn').style.backgroundColor = "transparent";
+        document.getElementById('filterBtn').style.color = "#fff";
         return document.getElementById('filter').style.display = "flex";
     }
     document.getElementById('filterBtn').style.backgroundColor = "#fff";
+    document.getElementById('filterBtn').style.color = "#05102e";
     return document.getElementById('filter').style.display = "none";
 }
