@@ -1,54 +1,3 @@
-function filterChecks() {
-    let paidElems = document.getElementsByClassName("paid");
-    let volElems = document.getElementsByClassName("voluntary");
-    let eduElems = document.getElementsByClassName("education");
-    let publElems = document.getElementsByClassName("publications");
-
-    if (document.getElementById("showPaid").checked) {
-        for (let i = 0; i < paidElems.length; i++) {
-            paidElems[i].style.display = "initial";
-        }
-    }
-    else {
-        for (let i = 0; i < paidElems.length; i++) {
-            paidElems[i].style.display = "none";
-        }
-    }
-
-    if (document.getElementById("showVoluntary").checked) {
-        for (let i = 0; i < volElems.length; i++) {
-            volElems[i].style.display = "initial";
-        }
-    }
-    else {
-        for (let i = 0; i < volElems.length; i++) {
-            volElems[i].style.display = "none";
-        }
-    }
-
-    if (document.getElementById("showEducation").checked) {
-        for (let i = 0; i < eduElems.length; i++) {
-            eduElems[i].style.display = "initial";
-        }
-    }
-    else {
-        for (let i = 0; i < eduElems.length; i++) {
-            eduElems[i].style.display = "none";
-        }
-    }
-
-    if (document.getElementById("showPublications").checked) {
-        for (let i = 0; i < publElems.length; i++) {
-            publElems[i].style.display = "initial";
-        }
-    }
-    else {
-        for (let i = 0; i < publElems.length; i++) {
-            publElems[i].style.display = "none";
-        }
-    }
-}
-
 window.onload = function getAge() {
     let today = new Date();
     let birthday = new Date(1994, 10, 6, 0, 0, 0);
@@ -69,25 +18,40 @@ window.onload = function getAge() {
     return document.getElementById('age').innerHTML = age + ' years old';
 }
 
-function showGeneral() {
-    let backgroundInfo = document.getElementById('background');
-    if (window.getComputedStyle(backgroundInfo).display == "none") {
-        document.getElementById('generalBtn').style.backgroundColor = "transparent";
-        document.getElementById('generalBtn').style.color = "#fff";
-        return backgroundInfo.style.display = "flex";
+function filterChecks() {
+    let paidElems = document.getElementsByClassName("paid");
+    let volElems = document.getElementsByClassName("voluntary");
+    let eduElems = document.getElementsByClassName("education");
+    let publElems = document.getElementsByClassName("publications");
+
+    let filterElems = [[paidElems, "showPaid"], [volElems, "showVoluntary"], [eduElems, "showEducation", publElems, "showPublications"]];
+
+    for (let i = 0; i < filterElems.length; i++) {
+        for (let j = 0; j < filterElems[i][0].length; j++) {
+            if (document.getElementById(filterElems[i][1]).checked) {
+                filterElems[i][0][j].style.display = "initial";
+            }
+            else {
+                filterElems[i][0][j].style.display = "none";
+            }
+        }
     }
-    document.getElementById('generalBtn').style.backgroundColor = "#fff";
-    document.getElementById('generalBtn').style.color = "#05102e";
-    return backgroundInfo.style.display = "none";
+}
+
+function showGeneral() {
+    if (window.getComputedStyle(document.getElementById('background')).display == "none") {
+        document.getElementById('generalBtn').classList.add("selected");
+        return document.getElementById('background').style.display = "flex";
+    }
+    document.getElementById('generalBtn').classList.remove("selected");
+    return document.getElementById('background').style.display = "none";
 }
 
 function showFilter() {
     if (window.getComputedStyle(document.getElementById('filter')).display == "none") {
-        document.getElementById('filterBtn').style.backgroundColor = "transparent";
-        document.getElementById('filterBtn').style.color = "#fff";
+        document.getElementById('filterBtn').classList.add("selected");
         return document.getElementById('filter').style.display = "flex";
     }
-    document.getElementById('filterBtn').style.backgroundColor = "#fff";
-    document.getElementById('filterBtn').style.color = "#05102e";
+    document.getElementById('filterBtn').classList.remove("selected");
     return document.getElementById('filter').style.display = "none";
 }
