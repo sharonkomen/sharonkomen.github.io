@@ -24,7 +24,7 @@ function filterChecks() {
     let eduElems = document.getElementsByClassName("education");
     let publElems = document.getElementsByClassName("publications");
 
-    let filterElems = [[paidElems, "showPaid"], [volElems, "showVoluntary"], [eduElems, "showEducation", publElems, "showPublications"]];
+    let filterElems = [[paidElems, "showPaid"], [volElems, "showVoluntary"], [eduElems, "showEducation"], [publElems, "showPublications"]];
 
     for (let i = 0; i < filterElems.length; i++) {
         for (let j = 0; j < filterElems[i][0].length; j++) {
@@ -38,20 +38,28 @@ function filterChecks() {
     }
 }
 
-function showGeneral() {
-    if (window.getComputedStyle(document.getElementById('background')).display == "none") {
-        document.getElementById('generalBtn').classList.add("selected");
-        return document.getElementById('background').style.display = "flex";
-    }
-    document.getElementById('generalBtn').classList.remove("selected");
-    return document.getElementById('background').style.display = "none";
-}
-
-function showFilter() {
-    if (window.getComputedStyle(document.getElementById('filter')).display == "none") {
-        document.getElementById('filterBtn').classList.add("selected");
-        return document.getElementById('filter').style.display = "flex";
-    }
-    document.getElementById('filterBtn').classList.remove("selected");
-    return document.getElementById('filter').style.display = "none";
+window.onload = function showSummary() {
+    let variables = ['.summary', '.courses', '.start', '.end'];
+    document.querySelectorAll('.wrapper section').forEach((section) => {
+        section.addEventListener('click', function() {
+            variables.forEach((variable) => {
+                if (section.querySelector(variable)) {
+                    if (section.querySelector(variable).style.visibility == "visible") { 
+                        section.querySelector(variable).style.visibility = "hidden"; 
+                        section.querySelector(variable).style.opacity = 0;
+                    }
+                    else {
+                        document.querySelectorAll(variable).forEach((varia) => {
+                            if (varia.style.visibility == "visible") {
+                                varia.style.visibility = "hidden";
+                                varia.style.opacity = 0;
+                            }
+                        });
+                        section.querySelector(variable).style.visibility = "visible"; 
+                        section.querySelector(variable).style.opacity = 1;
+                    }
+                }
+            });
+        })
+    });
 }
