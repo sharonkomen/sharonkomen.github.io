@@ -11,28 +11,17 @@
             <h1>Sharon Komen</h1>
             <h2>Front-End Developer</h2>
         </div>
-        <div id="menu">
-            <h3 id="generalBtn" onclick="showGeneral()">General Information</h3>
-            <h3 id="filterBtn" onclick="showFilter()">Filter</h3>
-        </div>
         <div id="background">
             <div id="general">
-                <h3>General</h3>
                 <ul>
-                    <li id="age">27 years old</li>
-                    <li>Voorburg, Netherlands</li>
-                    <li><a href="https://www.linkedin.com/in/sharonkomen/">LinkedIn</a></li>
+                    <li><i class="fa-solid fa-cake-candles"></i><span id="age">27 years old</span></li>
+                    <li><i class="fa-solid fa-location-dot"></i><span>The Hague, Netherlands</span></li>
+                    <li><i class="fa-solid fa-language"></i><span>Dutch, English</span></li>
+                    <li><i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/sharonkomen/">LinkedIn</a></li>
                 </ul>
-            </div>
-            <div id="languages">
-                <h3>Languages</h3>
-                <ul>
-                    <li>Dutch</li>
-                    <li>English</li>
-                </ul>
+                <span class="separator"></span>
             </div>
             <div id="tech">
-                <h3>Tech</h3>
                 <ul>
                     <li>CSS</li>
                     <li>HTML</li>
@@ -41,27 +30,28 @@
                     <li>Bootstrap</li>
                     <li>Affinity Designer</li>
                 </ul>
+                <span class="separator"></span>
             </div>
-            <div id="projects">
+            <div id="filter">
+                <div id="filter-inner">
+                    <input type="checkbox" id="showPaid" onchange="filterChecks()" checked/>
+                    <label for="showPaid">Paid jobs</label><br/>
+                    <input type="checkbox" id="showVoluntary" onchange="filterChecks()" checked/>
+                    <label for="showVoluntary">Volunteer experience</label><br/>
+                    <input type="checkbox" id="showEducation" onchange="filterChecks()" checked/>
+                    <label for="showEducation">Education</label><br/>
+                    <input type="checkbox" id="showPublications" onchange="filterChecks()" checked/>
+                    <label for="showPublications">Publications</label>
+                </div>
+            </div>
+            <!-- <div id="projects">
                 <h3>Projects</h3>
                 <ul>
                     <li>Hypex Electronics  |  <small>Front-End Development</small></li>
                     <li>Mijn GemeentePortaal  |  <small>Front-End Design and Development</small></li>
                     <li>Project Vika  |  <small>Interaction Design</small></li>
                 </ul>
-            </div>
-        </div>
-        <div id="filter">
-            <div id="filter-inner">
-                <input type="checkbox" id="showPaid" onchange="filterChecks()" checked/>
-                <label for="showPaid">Paid Jobs</label><br/>
-                <input type="checkbox" id="showVoluntary" onchange="filterChecks()" checked/>
-                <label for="showVoluntary">Volunteer experience</label><br/>
-                <input type="checkbox" id="showEducation" onchange="filterChecks()" checked/>
-                <label for="showEducation">Education</label><br/>
-                <input type="checkbox" id="showPublications" onchange="filterChecks()" checked/>
-                <label for="showPublications">Publications</label>
-            </div>
+            </div> -->
         </div>
         <div id="profile">
             <img src="profile.jpg" alt="Profile picture"/>
@@ -77,14 +67,12 @@
                 <p class="summary">Front end development for e-commerce clients using Shopware 6 (Twig / HTML, SCSS / CSS, Bootstrap, JavaScript).</p>
             </section>
             <section class="voluntary" id="haagsehelpers">
-                <div class="column">
-                    <span class="end">Present</span>
-                    <h3>Volunteer</h3>
-                    <h4>Haagse Helpers</h4>
-                    <span class="location">The Hague, Netherlands</span>
-                    <span class="start">December 2021</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">Present</span>
+                <h3>Volunteer</h3>
+                <h4>Haagse Helpers</h4>
+                <span class="location">The Hague, Netherlands</span>
+                <span class="start">December 2021</span>
+                <i class="fa-solid fa-circle"></i>
                 <p class="summary">Voluntary activities for mostly elderly people in the Hague with little connections.</p>
             </section>
             <section class="education" id="javascriptAlgorithms">
@@ -93,14 +81,12 @@
                 <i class="fa-solid fa-circle"></i>
             </section>
             <section class="voluntary" id="vluchtelingenwerk">
-                <div class="column">
-                    <span class="end">July 2021</span>
-                    <h3>Social Worker</h3>
-                    <h4>VluchtelingenWerk</h4>
-                    <span class="location">Leidschendam, Netherlands</span>
-                    <span class="start">May 2021</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">July 2021</span>
+                <h3>Social Worker</h3>
+                <h4>VluchtelingenWerk</h4>
+                <span class="location">Leidschendam, Netherlands</span>
+                <span class="start">May 2021</span>
+                <i class="fa-solid fa-circle"></i>
                 <p class="summary">Helping refugees as they integrate in Dutch society, mostly in practical things, such as understanding government mail.</p>
             </section>
             <section class="education" id="responsiveWebDesign">
@@ -109,46 +95,38 @@
                 <i class="fa-solid fa-circle"></i>
             </section>
             <section class="paid" id="docfactory">
-                <div class="column">
-                    <span class="end">November 2021</span>
-                    <h3>Information Specialist</h3>
-                    <h4>DOCFactory</h4>
-                    <span class="location">Netherlands</span>
-                    <span class="start">May 2021</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">November 2021</span>
+                <h3>Information Specialist</h3>
+                <h4>DOCFactory</h4>
+                <span class="location">Netherlands</span>
+                <span class="start">May 2021</span>
+                <i class="fa-solid fa-circle"></i>
                 <p class="summary">Projects in business and government organisations to structure information and improve information management. Projects include DCMR Milieudienst Rijnmond, Prins Bernhard Cultuurfonds, gemeente Weesp, gemeente Zwijndrecht and the Noord-Hollands Archief.</p>
             </section>
             <section class="voluntary" id="globalrize">
-                <div class="column">
-                    <span class="end">July 2021</span>
-                    <h3>Graphic Designer</h3>
-                    <h4>GlobalRize</h4>
-                    <span class="start">October 2019</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">July 2021</span>
+                <h3>Graphic Designer</h3>
+                <h4>GlobalRize</h4>
+                <span class="start">October 2019</span>
+                <i class="fa-solid fa-circle"></i>
                 <p class="summary">Designing images for social media using Affinity Designer (similar to Adobe Illustrator).</p>
             </section>
             <section class="voluntary" id="betel">
-                <div class="column">
-                    <span class="end">November 2020</span>
-                    <h3>Volunteer</h3>
-                    <h4>Betel</h4>
-                    <span class="start">February 2020</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">November 2020</span>
+                <h3>Volunteer</h3>
+                <h4>Betel</h4>
+                <span class="start">February 2020</span>
+                <i class="fa-solid fa-circle"></i>
                 <p class="summary">Assisting women who come from drugs- and alcohol addiction in their rehabilitation by building personal relationships through living and working with them.</p>
             </section>
             <!--section class="paid" id="actiefzorg"></section-->
             <section class="voluntary" id="logoshope">
-                <div class="column">
-                    <span class="end">August 2019</span>
-                    <h3>Volunteer</h3>
-                    <h4>Logos Hope</h4>
-                    <span class="location">Argentina</span>
-                    <span class="start">May 2019</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">August 2019</span>
+                <h3>Volunteer</h3>
+                <h4>Logos Hope</h4>
+                <span class="location">Argentina</span>
+                <span class="start">May 2019</span>
+                <i class="fa-solid fa-circle"></i>
                 <ul class="summary">
                     <li>Working in the ship's kitchen 5 days a week, preparing food for the 400 international volunteers on board</li>
                     <li>Doing an outreach one day a week, for example in a kids' ministry, local church or on the ship's bookfair</li>
@@ -163,14 +141,12 @@
                 <i class="fa-solid fa-circle"></i>
             </section>
             <section class="paid" id="lostlemon">
-                <div class="column">
-                    <span class="end">September 2018</span>
-                    <h3>Solution Designer</h3>
-                    <h4>Lost Lemon</h4>
-                    <span class="location">Haarlem, Netherlands</span>
-                    <span class="start">March 2017</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">September 2018</span>
+                <h3>Solution Designer</h3>
+                <h4>Lost Lemon</h4>
+                <span class="location">Haarlem, Netherlands</span>
+                <span class="start">March 2017</span>
+                <i class="fa-solid fa-circle"></i>
                 <ul class="summary">
                     <li>Analysing business cases and designing new functionalities</li>
                     <li>Creating mock-ups for clients and developers (InVisionApp or HTML / CSS)</li>
@@ -180,35 +156,29 @@
                 </ul>
             </section>
             <section class="publications" id="justCulture">
-                <div class="column">
-                    <span class="start">April 2018</span>
-                    <h3>The Long and Winding Road to a Just Culture</a></h3>
-                    <h4>Society of Petroleum Engineers</h4>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="start">April 2018</span>
+                <h3>The Long and Winding Road to a Just Culture</a></h3>
+                <h4>Society of Petroleum Engineers</h4>
+                <i class="fa-solid fa-circle"></i>
                 <p class="summary">Co-author for <a href="https://onepetro.org/SPEHSE/proceedings-abstract/18HSE/2-18HSE/D021S016R001/214468">this paper</a>, presented at the SPE International Conference and Exhibition on Health, Safety, Security, Environment, and Social Responsibility, 16-18 April, Abu Dhabi, UAE. The paper discusses how to change an organizational culture from a blame culture to a just culture, which enhances organisational learning and safety.</p>
             </section>
             <section class="paid" id="unilever">
-                <div class="column">
-                    <span class="end">February 2017</span>
-                    <h3>Executive Recruitment Intern</h3>
-                    <h4>Unilever</h4>
-                    <span class="location">Rotterdam, Netherlands</span>
-                    <span class="start">August 2016</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">February 2017</span>
+                <h3>Executive Recruitment Intern</h3>
+                <h4>Unilever</h4>
+                <span class="location">Rotterdam, Netherlands</span>
+                <span class="start">August 2016</span>
+                <i class="fa-solid fa-circle"></i>
                 <p class="summary">Assisting the Unilever Recruitment Team in the Benelux in the recruitment process of executive roles.</p>
             </section>
             <section class="education" id="acp">
-                <div class="column">
-                    <span class="end">December 2016</span>
-                    <h3>Master of Science in Applied Cognitive Psychology</h3>
-                    <h4>Leiden University</h4>
-                    <span class="location">Leiden, Netherlands</span>
-                    <span class="grade">8.4 (Cum Laude)</span>
-                    <span class="start">September 2015</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">December 2016</span>
+                <h3>Master of Science in Applied Cognitive Psychology</h3>
+                <h4>Leiden University</h4>
+                <span class="location">Leiden, Netherlands</span>
+                <span class="grade">8.4 (Cum Laude)</span>
+                <span class="start">September 2015</span>
+                <i class="fa-solid fa-circle"></i>
                 <ul class="courses">
                     <li>The Art of Applying Psychology</li>
                     <li>Human Potential: Theory & Application</li>
@@ -221,15 +191,13 @@
             <!--section class="paid" id="sandd"></section-->
             <!--section class="voluntary" id="navigators"></section-->
             <section class="education" id="interactiveEnvironments">
-                <div class="column">
-                    <span class="end">February 2015</span>
-                    <h3>Minor Interactive Environments</h3>
-                    <h4>TU Delft</h4>
-                    <span class="location">Delft, Netherlands</span>
-                    <span class="grade">8.2</span>
-                    <span class="start">September 2014</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">February 2015</span>
+                <h3>Minor Interactive Environments</h3>
+                <h4>TU Delft</h4>
+                <span class="location">Delft, Netherlands</span>
+                <span class="grade">8.2</span>
+                <span class="start">September 2014</span>
+                <i class="fa-solid fa-circle"></i>
                 <ul class="courses">
                     <li>Designer and Prototyping Studio</li>
                     <li>Design Strategies</li>
@@ -242,14 +210,12 @@
             <!--section class="paid" id="helion"></section-->
             <!--section class="paid" id="pannenkoekenhuysje"></section-->
             <section class="education" id="psychology">
-                <div class="column">
-                    <span class="end">June 2015</span>
-                    <h3>Bachelor of Science in Psychology</h3>
-                    <h4>Leiden University</h4>
-                    <span class="location">Leiden, Netherlands</span>
-                    <span class="start">September 2012</span>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
+                <span class="end">June 2015</span>
+                <h3>Bachelor of Science in Psychology</h3>
+                <h4>Leiden University</h4>
+                <span class="location">Leiden, Netherlands</span>
+                <span class="start">September 2012</span>
+                <i class="fa-solid fa-circle"></i>
                 <ul class="courses">
                     <li>Cognitive Psychology</li>
                     <li>Social and Organisational Psychology</li>
