@@ -59,6 +59,15 @@ h2 {
   background-color: #fff;
 }
 
+#menu .selected {
+  background-color: transparent;
+  color: #fff;
+}
+
+#menu .selected:hover {
+  background-color: transparent;
+}
+
 @media screen and (min-width: 500px) {
   h1 {
     font-size: 7rem;
@@ -93,70 +102,205 @@ h4 {
 }
 
 a {
+  color: #fff;
   text-decoration: none;
-  color: #05102e;
+  position: relative;
+  display: inline-block;
+  line-height: 1.4;
+  -webkit-transition: color ease .3s;
+  transition: color ease .3s;
+  padding: 0 1px;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: 0;
   background-color: #fff;
+  -webkit-transition: all ease .3s;
+  transition: all ease .3s;
 }
 
 a:hover {
-  color: #fff;
-  background-color: transparent;
-  font-weight: bold;
+  color: #05102e;
 }
 
-#background a,
+a:hover::after {
+  height: 100%;
+}
+
 .summary a,
 .courses a {
-  color: #fff;
+  color: #05102e;
+}
+
+.summary a::after,
+.courses a::after {
   background-color: #05102e;
 }
 
-#background a:hover,
 .summary a:hover,
 .courses a:hover {
-  color: #05102e;
-  background-color: #fff;
+  color: #fff;
+}
+
+.summary a:hover::after,
+.courses a:hover::after {
+  height: 100%;
 }
 
 ul {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
+  margin-top: 0;
+  text-align: left;
 }
 
 ul li {
   margin-top: 10px;
 }
 
+ul li:first-of-type {
+  margin-top: 0;
+}
+
 #background {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  max-width: 1300px;
+  width: 100%;
   margin: 0 auto 2rem;
 }
 
 #background > div {
-  background-color: #fff;
-  color: #05102e;
-  padding: 2rem;
-  margin-bottom: 1rem;
   width: 100%;
+  color: #fff;
+  padding: 2rem 1rem;
+  margin-bottom: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border: 4px solid #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#background h3 {
+#background > div i {
+  width: 3rem;
+  text-align: center;
+}
+
+#background #general {
+  position: relative;
+  border-bottom: 0;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+#background #tech {
+  position: relative;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+#background #tech ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: 0;
+  margin-bottom: .5rem;
+}
+
+#background #tech li {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  background-color: #fff;
+  color: #05102e;
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  margin-right: .5rem;
+  margin-top: .5rem;
+}
+
+#background #filter {
+  border-top: 0;
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+
+#background #filter #filter-inner {
+  text-align: left;
+  width: 100%;
+  margin: auto;
+}
+
+#background #filter #filter-inner h3 {
   margin-top: 0;
 }
 
-#background #projects small {
-  text-transform: uppercase;
+#background #filter #filter-inner input {
+  visibility: hidden;
+  z-index: 2;
+  position: absolute;
+}
+
+#background #filter #filter-inner input:checked + label::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #05102e;
+  font-size: .625rem;
+  margin-bottom: 3px;
+  vertical-align: middle;
+}
+
+#background #filter #filter-inner label {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+#background #filter #filter-inner label:last-of-type {
+  margin-bottom: 3px;
+}
+
+#background #filter #filter-inner label::before {
+  content: "";
+  width: 0.625rem;
+  height: 0.625rem;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+#background .separator {
+  height: 1px;
+  background-color: #fff;
+  width: calc(100% - 2rem);
+  display: inline-block;
+  position: absolute;
+  left: 1rem;
+  bottom: 0;
 }
 
 @media screen and (min-width: 700px) {
@@ -165,41 +309,42 @@ ul li {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    width: 90%;
   }
   #background > div {
-    width: 24%;
+    width: 33.33%;
+    padding: 3rem;
+    margin-bottom: 1rem;
+  }
+  #background #general {
+    border-right: 0;
+    border-bottom: 4px solid;
+    border-radius: 1.5rem 0 0 1.5rem;
+  }
+  #background #tech {
+    border-left: 0;
+    border-right: 0;
+    border-top: 4px solid;
+    border-bottom: 4px solid;
+  }
+  #background #filter {
+    border-left: 0;
+    border-top: 4px solid;
+    border-radius: 0 1.5rem 1.5rem 0;
+  }
+  #background .separator {
+    width: 1px;
+    height: calc(100% - 6rem);
+    right: 0;
+    top: 3rem;
+    left: auto;
+    bottom: auto;
   }
 }
 
-#filter {
-  display: none;
-  margin-bottom: 2rem;
-}
-
-#filter #filter-inner {
-  background-color: #fff;
-  color: #05102e;
-  text-align: left;
-  width: 100%;
-  margin: auto;
-  padding: 2rem;
-}
-
-#filter #filter-inner h3 {
-  margin-top: 0;
-}
-
-#filter #filter-inner input {
-  margin-bottom: 10px;
-}
-
-#filter #filter-inner input:last-of-type {
-  margin-bottom: 3px;
-}
-
-@media screen and (min-width: 700px) {
-  #filter #filter-inner {
-    width: 30%;
+@media screen and (min-width: 1400px) {
+  #background {
+    width: 60%;
   }
 }
 
@@ -252,16 +397,16 @@ ul li {
       -ms-flex-align: end;
           align-items: flex-end;
   text-align: right;
-}
-
-.wrapper section:hover .start, .wrapper section:hover .end {
-  visibility: hidden;
-  opacity: 0;
-}
-
-.wrapper section:hover .summary, .wrapper section:hover .courses {
-  visibility: visible;
-  opacity: 1;
+  /*&:hover {
+            .start, .end {
+                visibility: hidden;
+                opacity: 0;
+            }
+            .summary, .courses {
+                visibility: visible;
+                opacity: 1;
+            }
+        }*/
 }
 
 .wrapper section .fa-circle {
@@ -310,6 +455,8 @@ ul li {
   position: absolute;
   -webkit-transition: visibility .2s, opacity .5s linear;
   transition: visibility .2s, opacity .5s linear;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .wrapper section .start {
@@ -378,10 +525,14 @@ ul li {
 }
 
 @media screen and (min-width: 700px) {
-  .wrapper section:hover .start,
-  .wrapper section:hover .end {
-    visibility: visible;
-    opacity: 1;
+  .wrapper section {
+    /*&:hover {
+            .start,
+            .end {
+                visibility: visible;
+                opacity: 1;
+            }
+        }*/
   }
   .wrapper section .summary,
   .wrapper section .courses {
@@ -391,11 +542,6 @@ ul li {
   .wrapper section .summary::after,
   .wrapper section .courses::after {
     content: '';
-  }
-  .wrapper section .start,
-  .wrapper section .end {
-    visibility: hidden;
-    opacity: 0;
   }
   .wrapper section:nth-child(odd) .summary::after,
   .wrapper section:nth-child(odd) .courses::after {
@@ -430,5 +576,9 @@ ul li {
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
   margin-bottom: 15rem;
+}
+
+#rocket a::after {
+  content: none;
 }
 /*# sourceMappingURL=styles.css.map */
